@@ -1,39 +1,27 @@
+import  React, { Component } from 'react';
+import  './App.css';
+import Banner from './Banner';
+import Exhibit from './Exhibit'; 
+import AddressFetch from './AddressFetch'; 
+import PylonConnection from './PylonConnection';
 
-import './App.css';
-
-function App() {
-  return (
-    <div className="App">
-          <div class="header">
-            
-              <p></p>
-          </div>
-
-          <div class="banner">
-              <div class="banner__content">
-                  <div class=".banner__text">
-                      <strong>Sextant</strong>
-                  </div>
-
-              </div>
-
-          </div>
-
-
-        <p>
-           Welcome to React
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      
-    </div>
-  );
+class App extends Component {
+    render() {
+        return (
+            <div className="App">
+                <Banner bannerText="Sextant" />
+                <Exhibit name="Public IPv4 Address"> 
+                    <AddressFetch url='https://api.ipify.org?format=json' /> 
+                </Exhibit>
+                <Exhibit name="Public IPv6 Address">
+                    <AddressFetch url='https://api64.ipify.org?format=json' />
+                </Exhibit>
+                <Exhibit name="Pylon Packet Latency">
+                   <PylonConnection />
+                </Exhibit>
+            </div>
+        );
+    }
 }
 
 export default App;
