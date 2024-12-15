@@ -1,23 +1,23 @@
-import  React, { Component } from 'react';
-import  './App.css';
+import React, { Component } from 'react';
+import './App.css';
 import Banner from './Banner';
-import Exhibit from './Exhibit'; 
-import AddressFetch from './AddressFetch'; 
-import PylonConnection from './PylonConnection';
+import Exhibit from './Exhibit';
+import AddressDisplay from './AddressDisplay';
+import PylonConnector from './PylonConnector';
 
 class App extends Component {
     render() {
         return (
             <div className="App">
                 <Banner bannerText="Sextant" />
-                <Exhibit name="Public IPv4 Address"> 
-                    <AddressFetch url='https://api.ipify.org?format=json' /> 
+                <Exhibit name="Public IPv4 Address">
+                    <AddressDisplay url='https://api.ipify.org?format=json' />
                 </Exhibit>
                 <Exhibit name="Public IPv6 Address">
-                    <AddressFetch url='https://api64.ipify.org?format=json' />
+                    <AddressDisplay url='https://api64.ipify.org?format=json' />
                 </Exhibit>
                 <Exhibit name="Pylon Packet Latency">
-                   <PylonConnection />
+                    <PylonConnector />
                 </Exhibit>
             </div>
         );
